@@ -152,10 +152,10 @@ export default async function BlogPost({ params }: PageProps) {
             {page.data.author && isValidAuthor(page.data.author) && (
               <AuthorCard author={getAuthor(page.data.author)} />
             )}
-            <div className="border border-border rounded-lg p-6 bg-card">
+            <div className="border border-border rounded-lg p-4 bg-card">
               <TableOfContents />
             </div>
-            <PromoContent variant="desktop" />
+            {/* <PromoContent variant="desktop" /> */}
           </div>
         </aside>
       </div>
