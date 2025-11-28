@@ -12,7 +12,7 @@ import { TableOfContents } from "@/components/table-of-contents";
 import { MobileTableOfContents } from "@/components/mobile-toc";
 import { AuthorCard } from "@/components/author-card";
 import { ReadMoreSection } from "@/components/read-more-section";
-import { PromoContent } from "@/components/promo-content";
+// import { PromoContent } from "@/components/promo-content";
 import { getAuthor, isValidAuthor } from "@/lib/authors";
 import { HashScrollHandler } from "@/components/hash-scroll-handler";
 import { DottedMap } from "@/components/ui/dotted-map";
