@@ -75,12 +75,12 @@ export async function generateMetadata({
       ],
       authors: [
         {
-          name: page.data.author || "Magic UI",
+          name: page.data.author || "OpenStack",
           url: siteConfig.url,
         },
       ],
-      creator: page.data.author || "Magic UI",
-      publisher: "Magic UI",
+      creator: page.data.author || "OpenStack",
+      publisher: "OpenStack",
       robots: {
         index: true,
         follow: true,
@@ -98,7 +98,7 @@ export async function generateMetadata({
         type: "article",
         url: ogUrl,
         publishedTime: page.data.date,
-        authors: [page.data.author || "Magic UI"],
+        authors: [page.data.author || "OpenStack"],
         tags: page.data.tags,
         images: [
           {

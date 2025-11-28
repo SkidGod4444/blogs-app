@@ -9,12 +9,12 @@ export function SiteNav() {
         <div className="mr-4 flex">
           <Link
             href="/"
-            className="mr-6 flex items-center space-x-2 font-medium text-lg tracking-tighter h-8 w-8 rounded-md overflow-hidden"
+            className="mr-6 flex items-center space-x-2 font-medium text-lg tracking-tighter h-12 w-12 rounded-lg overflow-hidden"
           >
             <img
-              src="/magicui-logo.png"
-              alt="Magic UI"
-              className="w-10 h-10 object-cover"
+              src="/openstack-logo.jpg"
+              alt="OpenStack"
+              className="w-12 h-12 object-cover"
             />
           </Link>
         </div>
