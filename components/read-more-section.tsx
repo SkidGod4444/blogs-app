@@ -1,12 +1,19 @@
 /* eslint-disable @next/next/no-img-element */
 import { docs, meta } from "@/.source";
-import { loader } from "fumadocs-core/source";
+import { loader, type VirtualFile, type SourceConfig } from "fumadocs-core/source";
 import { createMDXSource } from "fumadocs-mdx";
 import Link from "next/link";
 
+const source = createMDXSource(docs, meta);
+const sourceFiles = typeof source.files === "function" 
+  ? (source.files as () => VirtualFile<SourceConfig>[])()
+  : source.files;
+
 const blogSource = loader({
   baseUrl: "/blog",
-  source: createMDXSource(docs, meta),
+  source: {
+    files: sourceFiles,
+  },
 });
 
 const formatDate = (date: Date): string => {
@@ -43,7 +50,7 @@ export function ReadMoreSection({
   currentSlug,
   currentTags = [],
 }: ReadMoreSectionProps) {
-  const allPages = blogSource.getPages() as BlogPage[];
+  const allPages = blogSource.getPages() as unknown as BlogPage[];
 
   const currentUrl = `/blog/${currentSlug.join("/")}`;
 

@@ -1,6 +1,6 @@
 import { docs, meta } from "@/.source";
 import { DocsBody } from "fumadocs-ui/page";
-import { loader } from "fumadocs-core/source";
+import { loader, type VirtualFile, type SourceConfig } from "fumadocs-core/source";
 import { createMDXSource } from "fumadocs-mdx";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
@@ -21,9 +21,31 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+interface BlogData {
+  title: string;
+  description: string;
+  date: string;
+  tags?: string[];
+  author?: string;
+  thumbnail?: string;
+  body: React.ComponentType;
+}
+
+interface BlogPage {
+  url: string;
+  data: BlogData;
+}
+
+const source = createMDXSource(docs, meta);
+const sourceFiles = typeof source.files === "function" 
+  ? (source.files as () => VirtualFile<SourceConfig>[])()
+  : source.files;
+
 const blogSource = loader({
   baseUrl: "/blog",
-  source: createMDXSource(docs, meta),
+  source: {
+    files: sourceFiles,
+  },
 });
 
 const formatDate = (date: Date): string => {
@@ -41,7 +63,7 @@ export default async function BlogPost({ params }: PageProps) {
     notFound();
   }
 
-  const page = blogSource.getPage([slug]);
+  const page = blogSource.getPage([slug]) as unknown as BlogPage | undefined;
 
   if (!page) {
     notFound();
