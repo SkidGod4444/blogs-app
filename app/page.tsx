@@ -1,5 +1,5 @@
 import { docs, meta } from "@/.source";
-import { loader } from "fumadocs-core/source";
+import { loader, type VirtualFile, type SourceConfig } from "fumadocs-core/source";
 import { createMDXSource } from "fumadocs-mdx";
 import { Suspense } from "react";
 import { BlogCard } from "@/components/blog-card";
@@ -23,9 +23,17 @@ interface BlogPage {
   data: BlogData;
 }
 
+const source = createMDXSource(docs, meta);
+// fumadocs returns source.files as a function that needs to be called
+const sourceFiles = typeof source.files === "function" 
+  ? (source.files as () => VirtualFile<SourceConfig>[])()
+  : source.files;
+
 const blogSource = loader({
   baseUrl: "/blog",
-  source: createMDXSource(docs, meta),
+  source: {
+    files: sourceFiles,
+  },
 });
 
 const formatDate = (date: Date): string => {
@@ -42,7 +50,7 @@ export default async function HomePage({
   searchParams: Promise<{ tag?: string }>;
 }) {
   const resolvedSearchParams = await searchParams;
-  const allPages = blogSource.getPages() as BlogPage[];
+  const allPages = blogSource.getPages() as unknown as BlogPage[];
   const sortedBlogs = allPages.sort((a, b) => {
     const dateA = new Date(a.data.date).getTime();
     const dateB = new Date(b.data.date).getTime();
