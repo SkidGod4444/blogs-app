@@ -12,7 +12,7 @@ import { TableOfContents } from "@/components/table-of-contents";
 import { MobileTableOfContents } from "@/components/mobile-toc";
 import { AuthorCard } from "@/components/author-card";
 import { ReadMoreSection } from "@/components/read-more-section";
-// import { PromoContent } from "@/components/promo-content";
+import { PromoContent } from "@/components/promo-content";
 import { getAuthor, isValidAuthor } from "@/lib/authors";
 import { HashScrollHandler } from "@/components/hash-scroll-handler";
 import { DottedMap } from "@/components/ui/dotted-map";
@@ -112,7 +112,7 @@ export default async function BlogPost({ params }: PageProps) {
           </h1>
 
           {page.data.description && (
-            <p className="text-muted-foreground max-w-6xl min-w-5xl md:text-lg md:text-balance">
+            <p className="text-muted-foreground max-w-6xl md:text-lg md:text-balance">
               {page.data.description}
             </p>
           )}
@@ -155,7 +155,7 @@ export default async function BlogPost({ params }: PageProps) {
             <div className="border border-border rounded-lg p-4 bg-card">
               <TableOfContents />
             </div>
-            {/* <PromoContent variant="desktop" /> */}
+            <PromoContent variant="desktop" />
           </div>
         </aside>
       </div>

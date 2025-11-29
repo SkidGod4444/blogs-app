@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Blog - OpenStack by Saidev Dhal";
+export const alt = "Archives of OpenStack";
 export const size = {
   width: 1200,
   height: 630,
@@ -15,7 +15,7 @@ const getAssetData = async () => {
     const fontUrls = {
       clashDisplay: `${baseUrl}/fonts/ClashDisplay-Semibold.ttf`,
       cabinetGrotesk: `${baseUrl}/fonts/CabinetGrotesk-Medium.ttf`,
-      logo: `${baseUrl}/openstack-logo.png`,
+      logo: `${baseUrl}/openstack-logo.jpg`,
     };
 
     const [clashDisplayRes, cabinetGroteskRes, logoRes] = await Promise.all([
@@ -34,7 +34,7 @@ const getAssetData = async () => {
       logoRes.arrayBuffer(),
     ]);
 
-    const logoBase64 = `data:image/png;base64,${Buffer.from(logoImage).toString(
+    const logoBase64 = `data:image/jpeg;base64,${Buffer.from(logoImage).toString(
       "base64"
     )}`;
 
@@ -107,15 +107,15 @@ export default async function Image() {
             <img
               src={
                 assetData?.logoBase64 ||
-                `${process.env.NEXT_PUBLIC_SITE_URL}/openstack-logo.png`
+                `${process.env.NEXT_PUBLIC_SITE_URL}/openstack-logo.jpg`
               }
               alt="OpenStack Logo"
               width={100}
               height={100}
             />
-            <h1 style={styles.title}>Blog</h1>
+            <h1 style={styles.title}>Archives of OpenStack</h1>
             <p style={styles.description}>
-              A blog about design, development, and other things.
+              A collection of Open-Source projects and resources. Built for developers by developers.
             </p>
           </div>
         </div>

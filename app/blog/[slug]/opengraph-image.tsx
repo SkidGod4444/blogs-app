@@ -67,7 +67,7 @@ const getAssetData = async (authorAvatar?: string) => {
     const [clashDisplay, cabinetGrotesk, logoImage, authorAvatarImage] =
       assetBuffers;
 
-    const logoBase64 = `data:image/png;base64,${Buffer.from(logoImage).toString(
+    const logoBase64 = `data:image/jpeg;base64,${Buffer.from(logoImage).toString(
       "base64"
     )}`;
 
@@ -223,9 +223,9 @@ export default async function Image({ params }: { params: { slug: string } }) {
               <img
                 src={
                   assetData?.logoBase64 ||
-                  `${process.env.NEXT_PUBLIC_SITE_URL}/magicui-logo.png`
+                  `${process.env.NEXT_PUBLIC_SITE_URL}/openstack-logo.jpg`
                 }
-                alt="MagicUI Logo"
+                alt="OpenStack Logo"
                 width={80}
                 height={80}
                 style={styles.logo}

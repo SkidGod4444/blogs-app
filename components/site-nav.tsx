@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { Button } from "./ui/button";
+import { RiDiscordFill } from "@remixicon/react";
 
 export function SiteNav() {
   return (
@@ -20,8 +22,13 @@ export function SiteNav() {
         </div>
 
         <div className="flex flex-1 w-full justify-end">
-          <nav className="flex items-center">
+          <nav className="flex items-center justify-between gap-2">
             <ThemeToggle />
+            <Link href="https://l.devwtf.in/discord" target="_blank">
+              <Button variant="outline" size={"icon"}>
+                <RiDiscordFill />
+              </Button>
+            </Link>
           </nav>
         </div>
       </div>
