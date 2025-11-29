@@ -67,9 +67,10 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+    borderRadius: "20px",
     border: "4px solid black",
     padding: "60px",
-  },
+  },  
   title: {
     fontSize: "64px",
     color: "black",

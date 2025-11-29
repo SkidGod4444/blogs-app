@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "./ui/button";
-import { RiDiscordFill } from "@remixicon/react";
+import { RiDiscordFill, RiGithubFill } from "@remixicon/react";
 
 export function SiteNav() {
   return (
@@ -24,9 +24,16 @@ export function SiteNav() {
         <div className="flex flex-1 w-full justify-end">
           <nav className="flex items-center justify-between gap-2">
             <ThemeToggle />
+
             <Link href="https://l.devwtf.in/discord" target="_blank">
               <Button variant="outline" size={"icon"}>
                 <RiDiscordFill />
+              </Button>
+            </Link>
+
+            <Link href="https://github.com/openstack-hq" target="_blank">
+              <Button variant="outline" size={"icon"}>
+                <RiGithubFill />
               </Button>
             </Link>
           </nav>

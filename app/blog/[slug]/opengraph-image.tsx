@@ -106,6 +106,7 @@ const styles = {
     height: "100%",
     width: "100%",
     border: "4px solid black",
+    borderRadius: "20px",
     flexDirection: "column",
     alignItems: "flex-start",
     justifyContent: "space-between",

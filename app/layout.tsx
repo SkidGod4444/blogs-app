@@ -7,6 +7,7 @@ import { metadataKeywords } from "./metadata";
 import { SiteNav } from "@/components/site-nav";
 import Footer from "@/components/footer";
 import "@/app/globals.css";
+import { Analytics } from "@vercel/analytics/next"
 
 export const viewport: Viewport = {
   themeColor: "black",
@@ -44,6 +45,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
